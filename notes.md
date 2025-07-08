@@ -142,6 +142,19 @@ Bij "grote" webapplicaties van bijv. 300 pagina's is hergebruik van code erg bel
 - ik wil niet verticaal/horizontaal moeten scrollen voor 1 methode
 - pas [never nesting](https://www.youtube.com/watch?v=CFRhGnuXG-4) toe
 
+  ```cs
+  if (true)
+  {
+      if (true)
+      {
+          while (true)
+          {
+
+          }
+      }
+  }
+  ```
+
 Verder kunnen SOLID-principes helpen:
 
 - Single responsibility

@@ -29,7 +29,36 @@
             elon.Speak();
 
             Console.WriteLine($"{jp.Name} is {jp.Age} years old.");
-            
+
+
+
+            // lijstjes:
+            // arrays
+
+            Animal[] animals = new Animal[10];
+
+            List<Animal> meerAnimals = new List<Animal>();
+            meerAnimals.Add(new Dog { Vachtkleur = "bruin" });
+            meerAnimals.Add(new Parrot());
+            meerAnimals.Add(new Parrot());
+            meerAnimals.Add(new Dog { Vachtkleur = "blond" });
+
+            foreach (var dier in meerAnimals)
+            {
+                dier.MakeNoise();
+                //if (dier is Dog)
+                //{
+                //    var echteDog = (Dog)dier;
+                //    Console.WriteLine($"-- en vachtkleur: {echteDog.Vachtkleur}");
+                //}
+            }
+
+
+            Console.WriteLine(new Dog().ToString()); ;
+
+
+
+
         }
     }
 }
