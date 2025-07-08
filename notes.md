@@ -47,6 +47,15 @@ Qua termen, API (Application Programming Interface) heeft meerdere betekenissen:
 - endpoint die JSON/XML ontvangt/terugstuurt
   - REST API
 
+wat de meeste developers belangrijk vinden bij het schrijven van code:
+
+1. Leesbaarheid - als ik het lees, snap ik het?
+2. Onderhoudbaarheid - patterns toegepast  aanpassingen maken
+3. Testbaarheid
+4. Veiligheid - kan het gehackt worden?
+5. Dat het werkt
+6. Performance
+
 ### HTTP
 
 - HTTP/1.1 - gaat al even mee
@@ -140,6 +149,24 @@ Bij "grote" webapplicaties van bijv. 300 pagina's is hergebruik van code erg bel
 
 - max. 300 regels per bestand
 - ik wil niet verticaal/horizontaal moeten scrollen voor 1 methode
+  - bij tests kun je herhalend initializatiewerk bijv. naar een aparte methode verplaatsen:
+    ```cs
+    [TestMethod]
+    public void Bla_Iets_Success()
+    {
+      // Arrange
+      ArrangePasswordStuff();
+
+      // Act
+
+      // Assert
+    }
+
+    public void ArrangePasswordStuff()
+    {
+
+    }
+    ```
 - pas [never nesting](https://www.youtube.com/watch?v=CFRhGnuXG-4) toe
 
   ```cs
@@ -241,3 +268,15 @@ public class Singleton
     }
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
