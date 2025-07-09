@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace LabUitwerking.Rekeningen;
 
-public class Rekening
+public interface IRekening
 {
-    public string Owner { get; set; }
-    public int Balance { get; set; }
+    string Owner { get; set; }
+    int Balance { get; set; }
 
-    public virtual void Deposit(int amount)
-    {
-        Balance += amount;
-    }
+    void Deposit(int amount);
 
-    public virtual void Withdraw(int amount)
-    {
-        Balance -= amount;
-    }
+    void Withdraw(int amount);
 }

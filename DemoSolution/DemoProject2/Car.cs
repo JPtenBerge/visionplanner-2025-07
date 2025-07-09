@@ -8,7 +8,7 @@ namespace DemoProject2;
 
 internal class Car : IVehicle
 {
-    Motor _engine;
+    //Motor _engine;
 
     public void Start()
     {

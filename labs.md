@@ -14,10 +14,12 @@
 
 4. Extra oefening met overerving? Maak een nieuwe console-applicatie een lijst van medewerkers wordt bijgehouden. Een medewerker kan intern zijn met een vast maandbedrag als salaris, maar ook een consultant met een veel te hoog uurtarief. Toon een overzicht van maandelijkse kosten voor iedere medewerker.
 
-
-
-
-
-
-
+5. Realiseer alle onderstaande opgaven realiseren met delegates/lambda-expressies.
+   1. Maak een lijst met teststrings. Dit moeten getallen zijn die in een string staan, zowel hele als decimale getallen. Gebruik hiervoor een generic collection, bijv `List<>`.
+   2. Druk alle strings af, niet met foreach maar m.b.v een lambda-expressie.
+   3. Controleer of de lijst getallen bevat die kleiner dan 0 zijn.
+   4. Controleer of de lijst alleen getallen bevat.
+   5. Filter uit deze lijst een nieuwe lijst met strings waarin alle decimale getallen zitten .
+   6. Converteer de nieuwe lijst naar een lijst van doubles.
+   7. Tel alle doubles bij elkaar op en druk het resultaat af.
 

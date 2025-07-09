@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace LabUitwerking.Rekeningen;
 
-internal class VipRekening : Rekening
+internal class VipRekening : IRekening
 {
+    public string Owner { get; set; }
+    public int Balance { get; set; }
     public decimal Discount { get; set; }
 
-    public override void Withdraw(int amount)
+    public void Deposit(int amount)
+    {
+        Balance += amount;
+    }
+
+    public void Withdraw(int amount)
     {
         var discountAmount = amount / 100 * Discount;
         var discountedAmount = amount - discountAmount;
         var fatsoenlijkAmount = Convert.ToInt32(discountedAmount);
         Console.WriteLine("-- met korting! " + fatsoenlijkAmount);
-        base.Withdraw(fatsoenlijkAmount);
+        Balance -= fatsoenlijkAmount;
     }
 }

@@ -8,7 +8,7 @@ namespace DemoProject2;
 
 internal class Bicycle : IVehicle
 {
-    Dynamo dynamo;
+    //Dynamo dynamo;
 
     public void Start()
     {

@@ -9,11 +9,11 @@ namespace LabUitwerking;
 
 public class Bank
 {
-    private List<Rekening> _accounts = [];
+    private List<IRekening> _accounts = [];
 
-    public Rekening OpenAccount(string owner, int initialBalance, Rekeningsoort soort)
+    public IRekening OpenAccount(string owner, int initialBalance, Rekeningsoort soort)
     {
-        Rekening newRekening;
+        IRekening newRekening;
         if (soort == Rekeningsoort.LopendeRekening)
         {
             newRekening = new LopendeRekening { Owner = owner, Balance = initialBalance };
@@ -35,7 +35,7 @@ public class Bank
         return newRekening;
     }
 
-    public void TransferMoney(Rekening from, Rekening to, int amount)
+    public void TransferMoney(IRekening from, IRekening to, int amount)
     {
         from.Withdraw(amount);
         to.Deposit(amount);
