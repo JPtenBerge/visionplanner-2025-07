@@ -50,7 +50,7 @@ Qua termen, API (Application Programming Interface) heeft meerdere betekenissen:
 wat de meeste developers belangrijk vinden bij het schrijven van code:
 
 1. Leesbaarheid - als ik het lees, snap ik het?
-2. Onderhoudbaarheid - patterns toegepast  aanpassingen maken
+2. Onderhoudbaarheid - patterns toegepast aanpassingen maken
 3. Testbaarheid
 4. Veiligheid - kan het gehackt worden?
 5. Dat het werkt
@@ -149,7 +149,9 @@ Bij "grote" webapplicaties van bijv. 300 pagina's is hergebruik van code erg bel
 
 - max. 300 regels per bestand
 - ik wil niet verticaal/horizontaal moeten scrollen voor 1 methode
+
   - bij tests kun je herhalend initializatiewerk bijv. naar een aparte methode verplaatsen:
+
     ```cs
     [TestMethod]
     public void Bla_Iets_Success()
@@ -167,6 +169,7 @@ Bij "grote" webapplicaties van bijv. 300 pagina's is hergebruik van code erg bel
 
     }
     ```
+
 - pas [never nesting](https://www.youtube.com/watch?v=CFRhGnuXG-4) toe
 
   ```cs
@@ -200,6 +203,37 @@ Pilaren van OO:
 - encapsulatie <== vaak gerealiseerd middels properties
 - polymorphisme
 - inheritance
+
+### Interfaces
+
+- Grafisch ding waar je op kan klikken/tappen
+- In C#?
+  - aangeven wat er geimplementeerd moet worden
+  - vs class?
+    - Er staat een I voor.
+    - beschrijven wat iets heeft
+    - geen implementatie
+    - contract
+    - alle implementaties volledig gescheiden van elkaar
+
+```cs
+IOpslagService service;
+service.SlaOp();
+
+class FileOpslagService : IOpslagService {}
+class AzureOpslagService : IOpslagService {}
+class AwsOpslagService : IOpslagService {}
+
+class MockOpslagService : IOpslagService {} // unittesten
+```
+
+### Inheritance terminologie
+
+- `class : interface` - implements
+- `class : class` - extends
+- `interface : interface` - extends
+- `class : class, class, class` 🚩❌ - meerdere classes overerven mag niet in C# (gelukkig!)
+- `class : class`, interface, interface - extends en implements en implements
 
 ## C# technisch
 
@@ -268,15 +302,3 @@ public class Singleton
     }
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
