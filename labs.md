@@ -16,7 +16,7 @@
 
 5. Realiseer alle onderstaande opgaven realiseren met delegates/lambda-expressies.
    1. Maak een lijst met teststrings. Dit moeten getallen zijn die in een string staan, zowel hele als decimale getallen. Gebruik hiervoor een generic collection, bijv `List<>`.
-   2. Druk alle strings af, niet met foreach maar m.b.v een lambda-expressie.
+   2. Druk alle strings af, niet met `foreach` maar m.b.v een lambda-expressie.
    3. Controleer of de lijst getallen bevat die kleiner dan 0 zijn.
    4. Controleer of de lijst alleen getallen bevat.
    5. Filter uit deze lijst een nieuwe lijst met strings waarin alle decimale getallen zitten .

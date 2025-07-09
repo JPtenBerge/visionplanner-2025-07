@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandigeInterfaceDemo", "Han
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaDemo", "LambdaDemo\LambdaDemo.csproj", "{B31ABA06-DCB6-4D98-911E-2FDAA433D772}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaLab", "LambdaLab\LambdaLab.csproj", "{E4513BFE-3553-447B-BAC1-09DB20EA07BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B31ABA06-DCB6-4D98-911E-2FDAA433D772}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B31ABA06-DCB6-4D98-911E-2FDAA433D772}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B31ABA06-DCB6-4D98-911E-2FDAA433D772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4513BFE-3553-447B-BAC1-09DB20EA07BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4513BFE-3553-447B-BAC1-09DB20EA07BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4513BFE-3553-447B-BAC1-09DB20EA07BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4513BFE-3553-447B-BAC1-09DB20EA07BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
