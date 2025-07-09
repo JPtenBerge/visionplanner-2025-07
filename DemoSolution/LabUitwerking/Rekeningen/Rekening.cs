@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabUitwerking;
+namespace LabUitwerking.Rekeningen;
 
 public class Rekening
 {
     public string Owner { get; set; }
     public int Balance { get; set; }
 
-    public void Deposit(int amount)
+    public virtual void Deposit(int amount)
     {
         Balance += amount;
     }
 
-    public void Withdraw(int amount)
+    public virtual void Withdraw(int amount)
     {
         Balance -= amount;
     }
