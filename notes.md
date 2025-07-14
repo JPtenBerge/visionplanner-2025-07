@@ -134,6 +134,23 @@ Artificial Super Intelligence
   - voor hobbyprojectjes of een snel proof-of-conceptje, prima
   - voor professionele projecten die jarenlang onderhouden worden door 10 man _vind ik_ dit geen reele werkwijze
 
+## .NET
+
+.NET Framework
+
+- 2001
+- multi-platform
+  - maar Microsoft leverde enkel een runtime voor Windows
+  - Mono voor Linux/MacOS
+
+.NET Core
+
+- 2016
+- multi-platform MET Microsoft die een runtime leverde voor Windows, MacOS EN Linux
+- v1.0 zeer beperkt
+- v2.0
+- v3 v3.1 v5 => .NET Core vanaf 5 hernoemd naar .NET
+
 ## C#
 
 - object-georienteerde taal
@@ -277,6 +294,38 @@ kommagetallen:
 - alles wat geen value type is
 - `string`
 - alle classes
+
+### Typische opzet class
+
+```cs
+class Bla
+{
+	// fields
+	// properties
+
+	// constructors
+
+	// methods
+	// - happy flow main method
+	// - supporting stuff
+}
+```
+
+### Delegates
+
+.NET heeft 3 soorten delegates:
+
+- `Action<T>` - doe iets. geen returnwaarde.
+- `Predicate<T>` - checken, returnwaarde boolean.
+- `Func<T, R>` - returnwaarde is instelbaar
+
+### Lambdas
+
+- een Griekse letter
+- in C#?
+  - minifunctie `x => 2 * x`
+  - minimethode / inline methode
+  - mini-interface
 
 ## Overig
 
