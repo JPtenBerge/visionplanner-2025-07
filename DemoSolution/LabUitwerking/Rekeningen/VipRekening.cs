@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace LabUitwerking.Rekeningen;
 
-internal class VipRekening : IRekening
+public class VipRekening : IRekening
 {
+
     public string Owner { get; set; }
     public int Balance { get; set; }
     public decimal Discount { get; set; }
+    private readonly IKortingService _kortingService;
+
+    public VipRekening(IKortingService kortingService)
+    {
+        _kortingService = kortingService;
+    }
 
     public void Deposit(int amount)
     {
@@ -19,9 +26,7 @@ internal class VipRekening : IRekening
 
     public void Withdraw(int amount)
     {
-        var discountAmount = amount / 100 * Discount;
-        var discountedAmount = amount - discountAmount;
-        var fatsoenlijkAmount = Convert.ToInt32(discountedAmount);
+        var fatsoenlijkAmount = _kortingService.GeefKortingBedrag(amount, Discount);
         Console.WriteLine("-- met korting! " + fatsoenlijkAmount);
         Balance -= fatsoenlijkAmount;
     }

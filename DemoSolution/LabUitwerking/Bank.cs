@@ -24,7 +24,7 @@ public class Bank
         }
         else if (soort == Rekeningsoort.VipRekening)
         {
-            newRekening = new VipRekening { Owner = owner, Balance = initialBalance, Discount = 12.1m };
+            newRekening = new VipRekening(null) { Owner = owner, Balance = initialBalance, Discount = 12.1m };
         }
         else
         {
