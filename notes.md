@@ -340,7 +340,7 @@ class Bla
   - 80%? 90%?
   - een leuk metriekje, maar niet heilig. Het vertelt niet het hele verhaal.
     ```cs
-    try 
+    try
     {
       service.Do();
     }
@@ -349,6 +349,7 @@ class Bla
 - mutation testing?
 
 Testframeworks:
+
 - NUnit
 - MSTest
 - xUnit
@@ -356,12 +357,58 @@ Testframeworks:
 Verschillen? Vroeger best wat, vooral met data-driven/parameterized tests ([vooral MSTest met z'n `\[DataSource\]`](https://learn.microsoft.com/en-us/visualstudio/test/how-to-create-a-data-driven-unit-test?view=vs-2022)). Vandaag de dag? Nauwelijks meer.
 
 FluentAssertions:
+
 - komt vanaf versie 8 met dure licentie
 - [AwesomeAssertions](https://awesomeassertions.org/) is een erg toffe drop-in replacement
 - is heel prettig voor assertions waar je objecten/lijsten van objecten vergelijkt
   ```cs
   actualDto.Should().BeEquivalentTo(expectedDto);
   ```
+
+### Mocken
+
+- bij het unittest dat je de dependencies "wegmockt"
+  - database
+  - Azure
+  - API
+  - andere class
+- mockframeworks
+  - Rhino Mocks  <== heul oud
+  - Moq - `new Mock<IBla>()`  `Mock.Of<...>()`
+  - FakeItEasy
+  - NSubstitute
+
+Dankzij mockframeworks hoef je niet handmatig een mock te maken en daarbij alle interacties te registreren:
+
+```cs
+class MijnService : IService
+{
+	public void Doe() {}
+}
+
+class MijnFakeService : IService
+{
+	public bool HasDoeBeenCalled = false;
+
+	public void Doe()
+	{
+		HasDoeBeenCalled = true;
+	}
+}
+```
+
+Bijhouden dat een methode is aangeroepen, hoe vaak hij is aangeroepen, met welke parameters, returnwaarde(n) instellen, exceptions configureren, allemaal een hoop werk als dat voor iedere methode in iedere class moet gebeuren.
+
+Wat is lastig te mocken?
+
+- `static` zaken: `DateTime.Now`, `File.AppendAllText()`, wat je zelf `static` maakt
+- classes die niet werken met interfaces, maar met concrete classes
+- classes zonder een interface om een nep-versie mee te maken. Kan wel:
+  ```cs
+  new Mock<BestaandeService>();
+  ```
+  Maar `BestaandeService` moet dan wel z'n methoden definieren met `virtual`. Een interface is sowieso fijner.
+- [TypeMock](https://www.typemock.com/) biedt wel uitkomst in sommige van deze gevallen (maar betaald).
 
 ## Overig
 
@@ -387,3 +434,101 @@ public class Singleton
     }
 }
 ```
+
+
+
+## Frontend
+
+"fullstack developer"
+
+Frontend
+
+- UI/UX
+- "het zien" van wat je maakt
+
+Backend
+
+- vaak moeilijkere stukken code
+  - algoritmen
+  - multithreading
+  - 300 concurrent gebruikers
+  - schaalbaarheid
+
+### Tooling
+
+- Visual Studio Code: texteditor
+- Node.js frontend tooltjes
+  - prettier: opinionated code formatter
+  - ESLint: static code analysis
+  - testing: karma jasmine jest vitest mocha chai sinon
+  - buildtools:
+    - gulp
+      ```ts
+      gulp.src("src/**/*.ts").pipe(tsc()).pipe(gulp.dest("./dist"));
+      ```
+    - grunt
+    - module bundlers:
+      - webpack (meest gebruikt)
+      - vite (meest modern)
+  - webserver: express
+
+CSS-ontwikkelingen
+
+- SCSS voor mooiere syntax
+- Tailwind: moderne manier om styles uit te drukken.
+  ```html
+  <div class="bg-blue-400 p-4 m-6 hover:bg-blue-900"></div>
+  ```
+  Hergebruik nog steeds wel mogelijk voor "echte" herbruikbare UI-elementen [`@layer`](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles) en [`@layer components`](https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes):
+  ```css
+  @layer utilities {
+    h1 {
+      @apply text-7xl;
+    }
+  }
+  @layer components { .card { /* ... */ } }
+  ```
+- Scoped CSS
+
+TypeScript
+
+- van Microsoft
+- zeer uitgebreide poging om te dynamiek/flexibliteit te reguleren
+- zeer fijne toevoeging voor projecten die jarenlang meegaan en waar 8+ man aan werken
+
+### SPA-libraries
+
+SPA - hoge interacties gebruiksvriendelijkheid
+
+- React - Meta / facebook
+- Angular - Google
+- Blazor - Microsoft C#
+- Knockout - Steve Sanderson - Microsoft
+- Svelte - Rich Harris - Vercel
+- Vue - Evan You - Google
+- Solid - Ryan Carniato - Vercel
+- Qwik - Misko Hevery - Google
+- Web Components: Lit - Google
+
+waarom niet gewoon vanilla JS?
+
+- libraries/frameworks verhogen leesbaarheid in het algemeen
+- DOM API: Document Object Model API
+  - is een draak van een API die de leesbaarheid van je code niet ten goede komt.
+  - testbaarheid is ook vaak lastig, want je moet vaak de hele DOM wegmocken
+
+### Appdevelopment
+
+- native apps
+  - beste UX
+  - twee devteams Swift Kotlin
+- compile-to-native
+  - React Native
+  - Flutter Google
+  - 1 devteam
+  - .NET MAUI
+- web tussenlaagjes
+  - capacitor
+  - phonegap
+  - ionic
+- web native - PWA
