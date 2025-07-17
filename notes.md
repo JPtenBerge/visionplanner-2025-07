@@ -327,6 +327,42 @@ class Bla
   - minimethode / inline methode
   - mini-interface
 
+## Unittesten
+
+- testen van backend. ook frontend.
+- testen van 1 component
+  - testen van een pad van 1 methode
+- mocken! geen integratie, maar mocken.
+- toetsen dat het systeem werkt.
+- **zo klein mogelijk stukje code / afzonderlijk / geisoleerd**
+- zorgen voor goede code coverage
+  - zegt wat over hoeveel van het systeem getest is
+  - 80%? 90%?
+  - een leuk metriekje, maar niet heilig. Het vertelt niet het hele verhaal.
+    ```cs
+    try 
+    {
+      service.Do();
+    }
+    catch(Exception ex) {}
+    ```
+- mutation testing?
+
+Testframeworks:
+- NUnit
+- MSTest
+- xUnit
+
+Verschillen? Vroeger best wat, vooral met data-driven/parameterized tests ([vooral MSTest met z'n `\[DataSource\]`](https://learn.microsoft.com/en-us/visualstudio/test/how-to-create-a-data-driven-unit-test?view=vs-2022)). Vandaag de dag? Nauwelijks meer.
+
+FluentAssertions:
+- komt vanaf versie 8 met dure licentie
+- [AwesomeAssertions](https://awesomeassertions.org/) is een erg toffe drop-in replacement
+- is heel prettig voor assertions waar je objecten/lijsten van objecten vergelijkt
+  ```cs
+  actualDto.Should().BeEquivalentTo(expectedDto);
+  ```
+
 ## Overig
 
 `static` is niet evil, maar is wel vervelend om te mocken bij het testen. Design pattern singleton kan daar uitkomst bieden:
