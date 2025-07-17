@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "description": "Pizza",
+      "price": 12
+    },
+    {
+      "id": 2,
+      "description": "Burger",
+      "price": 8
+    },
+    {
+      "id": 4,
+      "description": "Backendsushi",
+      "price": 15
+    },
+    {
+      "id": 5,
+      "description": "New Product",
+      "price": 10
+    }
+  ]
+}
