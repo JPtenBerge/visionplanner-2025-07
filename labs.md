@@ -23,3 +23,5 @@
    6. Converteer de nieuwe lijst naar een lijst van doubles.
    7. Tel alle doubles bij elkaar op en druk het resultaat af.
 
+6. Unittest jullie bank, bijv. het transferren van geld tussen rekeningen. Maar ook `Withdraw()`/`Deposit()`-methoden lenen zich er helemaal prima voor. Zeker die ene van de `VipRekening` die korting geeft.
+
