@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -11,17 +12,23 @@ namespace ProductieProj.Tests;
 public class FormProcessingServiceTests
 {
     FormProcessingService _sut;
+    Mock<IOpslagService> _opslagServiceMock;
 
     [SetUp]
     public void Setup()
     {
-        _sut = new FormProcessingService();
+        _opslagServiceMock = new Mock<IOpslagService>();
+        //_opslagServiceMock.Setup(x => x.Store()).Throw
+
+
+        _sut = new FormProcessingService(_opslagServiceMock.Object);
     }
 
     [Test]
     public void Process_ValidData_FormProcessedAndTrue()
     {
         var result = _sut.Process("JP", 38, "Sprite");
+        _opslagServiceMock.Verify(x => x.Store());
         result.Should().BeTrue();
     }
 
@@ -29,6 +36,7 @@ public class FormProcessingServiceTests
     public void Process_TooHighAge_FormNotProcessedAndFalse()
     {
         var result = _sut.Process("JP", 238, "Sprite");
+        _opslagServiceMock.Verify(x => x.Store(), Times.Never);
         result.Should().BeFalse();
     }
 

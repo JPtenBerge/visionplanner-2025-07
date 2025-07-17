@@ -8,6 +8,12 @@ namespace ProductieProj;
 
 public class FormProcessingService
 {
+    private readonly IOpslagService _opslagService;
+    public FormProcessingService(IOpslagService opslagService)
+    {
+        _opslagService = opslagService;
+    }
+
     public bool Process(string name, int age, string favoriteBeverage)
     {
         if (favoriteBeverage == null)
@@ -18,9 +24,9 @@ public class FormProcessingService
         if (age > 120 || age < 0)
         {
             return false;
-
         }
 
+        _opslagService.Store();
         return true;
     }
 }
