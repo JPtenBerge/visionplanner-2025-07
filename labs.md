@@ -25,3 +25,4 @@
 
 6. Unittest jullie bank, bijv. het transferren van geld tussen rekeningen. Maar ook `Withdraw()`/`Deposit()`-methoden lenen zich er helemaal prima voor. Zeker die ene van de `VipRekening` die korting geeft.
 
+7. Laat de `VipRekening` een afhankelijkheid hebben richting een `KortingService`. Breid de tests van je `VipRekening` uit een mock die checkt of verschillende kortingen correct worden verwerkt.
